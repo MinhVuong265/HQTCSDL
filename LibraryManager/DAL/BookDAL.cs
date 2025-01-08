@@ -18,7 +18,7 @@ namespace LibraryManager.DAL
 
         public DataTable LoadBook()
         {
-            string query = "select Sach.MaSach as [Mã sách], Sach.TenSach as [Tên sách], Sach.TenTacGia as [Tên tác giả], TheLoai.TenLoai as [Thể loại], Sach.MaLoai as [Mã loại], Sach.SoLuong as [Số lượng] from Sach, TheLoai where Sach.MaLoai = TheLoai.MaLoai";
+            string query = "select Sach.ID as [Mã sách], Sach.TenSach as [Tên sách], Sach.TenTacGia as [Tên tác giả], TheLoai.Ten as [Thể loại], Sach.IDTheLoai as [Mã loại], Sach.SoLuong as [Số lượng], NhaCungCap.Ten as [Nhà cung cấp] from Sach, TheLoai, NhaCungCap where Sach.IDTheLoai = TheLoai.ID and Sach.IDNhaCungCap = NhaCungCap.ID";
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 
             return data;

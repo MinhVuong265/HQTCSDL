@@ -44,9 +44,9 @@ namespace LibraryManager
         //}
 
         //ss acc ad hay staff
-        public void AdminTab(int type)
+        public void AdminTab(string type)
         {
-            adminToolStripMenuItem.Enabled = type == 1; 
+            adminToolStripMenuItem.Enabled = type == "admin"; 
         }
         public void LoadBook()
         {
@@ -195,6 +195,20 @@ namespace LibraryManager
             a.ShowDialog();
         }
 
+        private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SupplierForm a = new SupplierForm();
+            Hide();
+            a.ShowDialog();
+            Show();
+        }
+        private void quảnLýThểLoạiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoryForm a = new CategoryForm();
+            Hide();
+            a.ShowDialog();
+            Show();
+        }
         private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -208,7 +222,7 @@ namespace LibraryManager
 
             foreach (DataRow item in BookType.Rows)
             {
-                TheLoaiCollection.Add(item["TenLoai"].ToString());
+                TheLoaiCollection.Add(item["Ten"].ToString());
             }
 
             BookTypeComboBox.DataSource = TheLoaiCollection;
@@ -235,5 +249,7 @@ namespace LibraryManager
                 e.Cancel = true;
             }
         }
+
+        
     }
 }

@@ -49,7 +49,13 @@ values
 ('fouthstaff')
 go
 
-
+create table NhaCungCap
+(
+	ID int identity(1,1) primary key,
+	Ten nvarchar(100),
+	SoDienThoai varchar(10),
+	DiaChi nvarchar(200),
+)
 
 create table TheLoai
 (

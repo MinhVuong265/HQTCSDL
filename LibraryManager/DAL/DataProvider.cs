@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
+using System.Drawing;
 
 namespace LibraryManager.DAL
 {
@@ -19,7 +20,8 @@ namespace LibraryManager.DAL
             private set { DataProvider.instance = value; }
         }
 
-        private string connStr = @"Data Source=LAPTOP-KD3Q5K3T\MINHVUONG;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        //private string connStr = @"Data Source=LAPTOP-KD3Q5K3T\MINHVUONG;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        private string connStr = @"Data Source = LAPTOP-KD3Q5K3T\MINHVUONG;Initial Catalog = QuanLyThuVien_new; Integrated Security = True";
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();

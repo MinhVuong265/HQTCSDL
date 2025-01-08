@@ -39,7 +39,7 @@ namespace LibraryManager.DAL
 
         public Account GetAccountByUserName(string username)
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("Select * from TaiKhoan where TenDangNhap = '" + username + "'");
+            DataTable data = DataProvider.Instance.ExcuteQuery("Select TenDangNhap, MatKhau, LoaiTK, HoTen from TaiKhoan, NhanVien where TenDangNhap = '" + username + "'" + "and TaiKhoan.IDNhanVien = NhanVien.ID");
             foreach (DataRow item in data.Rows)
             {
                 return new Account(item);

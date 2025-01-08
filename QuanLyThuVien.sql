@@ -39,7 +39,11 @@ create table NhaCungCap
 	Ten nvarchar(100) not null,
 	SoDienThoai varchar(10),
 	DiaChi nvarchar(200)
+	--Thêm trạng thái
 )
+alter table NhaCungCap
+add TrangThai nvarchar(100) default N'Hoạt động' check (TrangThai in (N'Hoạt động', N'Ngừng hợp tác'))
+select * from NhaCungCap
 
 create table TheLoai
 (

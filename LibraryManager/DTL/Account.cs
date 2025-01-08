@@ -10,7 +10,7 @@ namespace LibraryManager.DTL
 {
     public class Account
     {
-        public Account(string userName, string displayName, int type, string password = null)
+        public Account(string userName, string displayName, string type, string password = null)
         {
             this.UserName = userName;
             this.DisplayName = displayName;
@@ -21,8 +21,8 @@ namespace LibraryManager.DTL
         public Account(DataRow row)
         {
             this.UserName = row["TenDangNhap"].ToString();
-            this.DisplayName = row["TenHienThi"].ToString();
-            this.Type = (int)row["LoaiTK"];
+            this.DisplayName = row["HoTen"].ToString();
+            this.Type = row["LoaiTK"].ToString();
             this.Password = row["MatKhau"].ToString();
         }
 
@@ -32,7 +32,7 @@ namespace LibraryManager.DTL
 
         private string password;
 
-        private int type;
+        private string type;
 
         public string UserName
         {
@@ -41,6 +41,6 @@ namespace LibraryManager.DTL
         }
         public string DisplayName { get => displayName; set => displayName = value; }
         public string Password { get => password; set => password = value; }
-        public int Type { get => type; set => type = value; }
+        public string Type { get => type; set => type = value; }
     }
 }
