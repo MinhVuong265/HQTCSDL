@@ -35,6 +35,7 @@
             this.Staff = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LogoutLabel = new System.Windows.Forms.Label();
+            this.BorrowBook = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Book
@@ -84,9 +85,9 @@
             // Staff
             // 
             this.Staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Staff.Location = new System.Drawing.Point(269, 307);
+            this.Staff.Location = new System.Drawing.Point(417, 318);
             this.Staff.Name = "Staff";
-            this.Staff.Size = new System.Drawing.Size(173, 95);
+            this.Staff.Size = new System.Drawing.Size(149, 84);
             this.Staff.TabIndex = 4;
             this.Staff.Text = "Quản lý nhân viên và báo cáo";
             this.Staff.UseVisualStyleBackColor = true;
@@ -114,11 +115,22 @@
             this.LogoutLabel.Text = "Đăng xuất";
             this.LogoutLabel.Click += new System.EventHandler(this.LogoutLabel_Click);
             // 
+            // BorrowBook
+            // 
+            this.BorrowBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BorrowBook.Location = new System.Drawing.Point(149, 318);
+            this.BorrowBook.Name = "BorrowBook";
+            this.BorrowBook.Size = new System.Drawing.Size(149, 84);
+            this.BorrowBook.TabIndex = 7;
+            this.BorrowBook.Text = "Quản lý mượn trả";
+            this.BorrowBook.UseVisualStyleBackColor = true;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 450);
+            this.Controls.Add(this.BorrowBook);
             this.Controls.Add(this.LogoutLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.Staff);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.Button Staff;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label LogoutLabel;
+        private System.Windows.Forms.Button BorrowBook;
     }
 }

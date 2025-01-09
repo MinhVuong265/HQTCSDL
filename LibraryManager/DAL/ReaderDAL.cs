@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LibraryManager.DAL
 {
@@ -20,18 +22,41 @@ namespace LibraryManager.DAL
 
         public DataTable LoadReader()
         {
-            string query = "select MaDocGia as [Mã độc giả], TenDocGia as [Tên độc giả], SoDienThoai as [Số điện thoại], DiaChi as [Địa chỉ] from DocGia";
+            string query = "select ID as [ID], HoTen as [Họ tên], SoDienThoai as [Số điện thoại], DiaChi as [Địa chỉ], TongSachMuon as [Tổng sách mượn] from DocGia_SoSachMuon";
 
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 
             return data;
         }
+        
+
+        public DataTable getBorrowBookByPhone(string phone)
+        {
+            string query = string.Format("select * from ChiTietSachMuon where IDDocGia = dbo.LayChiTietSachMuon('{0}')", phone);
+            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+            return dt;
+        }
+
         public DataTable SearchReader(string telnumber)
         {
-            string query = $"select MaDocGia as [Mã độc giả], TenDocGia as [Tên độc giả], SoDienThoai as [Số điện thoại], DiaChi as [Địa chỉ] from DocGia where SoDienThoai = '{telnumber}'";
+            string query = $"select ID as [ID], HoTen as [Họ tên], SoDienThoai as [Số điện thoại], DiaChi as [Địa chỉ], TongSachMuon as [Tổng sách mượn] from DocGia_SoSachMuon where SoDienThoai = '{telnumber}'";
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
             return data;
         }
+
+        public bool AddReader(string name, string telnum, string address)
+        {
+            string query = string.Format("exec Add_Docgia @Ten, @SoDienThoai, @DiaChi");
+
+
+            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { name, telnum, address });
+
+            return result > 0;
+        }
+
+        //
+
+
 
         public bool UpdateReaderInfo(string id, string name, string telnum, string address)
         {
@@ -39,15 +64,7 @@ namespace LibraryManager.DAL
             int result = DataProvider.Instance.ExcuteNonQuery(query);
             return result > 0;
         }
-
-        public bool AddReader(string name, string telnum, string address)
-        {
-            string query = $"insert into DocGia (TenDocGia, SoDienThoai, DiaChi) values (N'{name}', '{telnum}', N'{address}')";
-
-            int result = DataProvider.Instance.ExcuteNonQuery(query);
-
-            return result > 0;
-        }
+        
 
 
         public bool AddBorrowCard(string ReaderId)
