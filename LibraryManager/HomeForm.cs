@@ -49,5 +49,20 @@ namespace LibraryManager
             f.ShowDialog();
             Show();
         }
+
+        private void Reader_Click(object sender, EventArgs e)
+        {
+            ReaderForm f = new ReaderForm();
+            Hide();
+            f.ShowDialog();
+            Show();
+        }
+
+        private void Staff_Click(object sender, EventArgs e)
+        {
+            StaffForm f = new StaffForm();
+            Hide(); f.ShowDialog();
+            Show();
+        }
     }
 }

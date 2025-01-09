@@ -32,7 +32,7 @@
             this.Reader = new System.Windows.Forms.Button();
             this.Category = new System.Windows.Forms.Button();
             this.Supplier = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Staff = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LogoutLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -57,6 +57,7 @@
             this.Reader.TabIndex = 1;
             this.Reader.Text = "Quản lý độc giả";
             this.Reader.UseVisualStyleBackColor = true;
+            this.Reader.Click += new System.EventHandler(this.Reader_Click);
             // 
             // Category
             // 
@@ -80,15 +81,16 @@
             this.Supplier.UseVisualStyleBackColor = true;
             this.Supplier.Click += new System.EventHandler(this.Supplier_Click);
             // 
-            // button5
+            // Staff
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(269, 307);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(173, 95);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Quản lý nhân viên và báo cáo";
-            this.button5.UseVisualStyleBackColor = true;
+            this.Staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Staff.Location = new System.Drawing.Point(269, 307);
+            this.Staff.Name = "Staff";
+            this.Staff.Size = new System.Drawing.Size(173, 95);
+            this.Staff.TabIndex = 4;
+            this.Staff.Text = "Quản lý nhân viên và báo cáo";
+            this.Staff.UseVisualStyleBackColor = true;
+            this.Staff.Click += new System.EventHandler(this.Staff_Click);
             // 
             // NameLabel
             // 
@@ -119,7 +121,7 @@
             this.ClientSize = new System.Drawing.Size(729, 450);
             this.Controls.Add(this.LogoutLabel);
             this.Controls.Add(this.NameLabel);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.Staff);
             this.Controls.Add(this.Supplier);
             this.Controls.Add(this.Category);
             this.Controls.Add(this.Reader);
@@ -137,7 +139,7 @@
         private System.Windows.Forms.Button Reader;
         private System.Windows.Forms.Button Category;
         private System.Windows.Forms.Button Supplier;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Staff;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label LogoutLabel;
     }
