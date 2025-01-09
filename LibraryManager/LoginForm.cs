@@ -28,7 +28,8 @@ namespace LibraryManager
             if (LoginCheck(username,password))
             {
                 Account loginAccount = AccountDAL.Instance.GetAccountByUserName(username);
-                BookManager b = new BookManager(loginAccount);
+                //BookManager b = new BookManager(loginAccount);
+                HomeForm b = new HomeForm(loginAccount);
                 //PassData data = new PassData(b.AdminTab);
                 //data(NameLoginTextBox);
                 this.Hide();

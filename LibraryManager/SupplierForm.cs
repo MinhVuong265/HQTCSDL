@@ -56,12 +56,12 @@ namespace LibraryManager
                     }
                     else MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
+        }
             catch (SqlException)
             {
                 MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
+}
 
         private void EditButton_Click(object sender, EventArgs e)
         {
